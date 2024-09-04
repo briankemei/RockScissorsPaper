@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="35cca020-cc5b-49e7-8cf8-6259c10c4ea4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RSPF.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="35cca020-cc5b-49e7-8cf8-6259c10c4ea4" name="Changes" comment="Refactored the Rock, Paper, Scissors game into a modular structure. Split the code into two separate files: a functions file (RSPF.py) and a main program file. The functions handling user input, computer selection, and game logic were moved to the functions file. The main program imports these functions to manage the game loop and flow. This enhances code readability, modularity, and maintainability.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RSP.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RSPF.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSPF.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;briankemei&quot;
-  }
-}</component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/briankemei/RockScissorsPaper.git&quot;,
@@ -45,7 +45,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.RSP.executor": "Run",
-    "git-widget-placeholder": "master"
+    "Python.RSPF.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -64,6 +67,19 @@
       <option name="presentableId" value="Default" />
       <updated>1725301878264</updated>
     </task>
+    <task id="LOCAL-00001" summary="Refactored the Rock, Paper, Scissors game into a modular structure. Split the code into two separate files: a functions file (RSPF.py) and a main program file. The functions handling user input, computer selection, and game logic were moved to the functions file. The main program imports these functions to manage the game loop and flow. This enhances code readability, modularity, and maintainability.">
+      <option name="closed" value="true" />
+      <created>1725476405057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725476405057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactored the Rock, Paper, Scissors game into a modular structure. Split the code into two separate files: a functions file (RSPF.py) and a main program file. The functions handling user input, computer selection, and game logic were moved to the functions file. The main program imports these functions to manage the game loop and flow. This enhances code readability, modularity, and maintainability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the Rock, Paper, Scissors game into a modular structure. Split the code into two separate files: a functions file (RSPF.py) and a main program file. The functions handling user input, computer selection, and game logic were moved to the functions file. The main program imports these functions to manage the game loop and flow. This enhances code readability, modularity, and maintainability." />
   </component>
 </project>

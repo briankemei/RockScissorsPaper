@@ -1,5 +1,5 @@
-import random
-import RSPF as selection
+
+import RSPF as SELECTION
 
 print(" Play the game by choosing Rock, Scissors or Paper ")
 
@@ -11,11 +11,11 @@ while True:
     # Adding the number of times the user played
     count += 1
 
-    user_move = selection.user_choice()
-    computer_move = selection.computer_choice()
+    user_move = SELECTION.user_choice()
+    computer_move = SELECTION.computer_choice()
 
-    selection.play_RSP(user_move, computer_move)
-    play = selection.play_again()
+    SELECTION.play_RSP(user_move, computer_move)
+    play = SELECTION.play_again()
 
     # If the user does not choose y  the game will terminate
     if play != "y":
