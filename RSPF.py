@@ -1,9 +1,7 @@
-
 import random
 
 
 # Function to get the computer choice
-
 def computer_choice():
     # List of choice a computer will pick on
     select = ["Rock", "Scissors", "Paper"]
@@ -18,7 +16,8 @@ def user_choice():
     return user
 
 
-def play_RSP(user_choice, computer_choice):
+# Function to determine who wins the game by comparing the moves
+def win_move(user_choice, computer_choice):
     # Check for a tie condition
     if user_choice == computer_choice:
         print("It's a tie!\n")
@@ -48,10 +47,9 @@ def play_RSP(user_choice, computer_choice):
     else:
         print("Invalid choice\n")
 
-#functio to ask
-def play_again ():
+
+# Function to ask to continue to play.
+def play_again():
     # Ask the user if they want to continue playing the game.
     play = input("Do you want to play again? (Y/N): ").lower()
     return play
-
-

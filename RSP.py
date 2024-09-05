@@ -11,10 +11,19 @@ while True:
     # Adding the number of times the user played
     count += 1
 
-    user_move = SELECTION.user_choice()
-    computer_move = SELECTION.computer_choice()
+    try:
+        user_move = SELECTION.user_choice()
+        computer_move = SELECTION.computer_choice()
 
-    SELECTION.play_RSP(user_move, computer_move)
+    except Exception as e:
+        # Catch any unexpected exceptions and inform the user
+        print(f"An error occurred: {e}")
+
+        continue  # Continue to the next iteration of the loop to ask for input again
+    # Play  a round to determine the winner
+    SELECTION.win_move(user_move, computer_move)
+
+    # Ask the player if they want to play another round.
     play = SELECTION.play_again()
 
     # If the user does not choose y  the game will terminate
