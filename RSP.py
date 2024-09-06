@@ -20,8 +20,13 @@ while True:
         print(f"An error occurred: {e}")
 
         continue  # Continue to the next iteration of the loop to ask for input again
+    comp_rate = SELECTION.computer_rating()
+    user_rate = SELECTION.user_rating()
+    
     # Play  a round to determine the winner
-    SELECTION.win_move(user_move, computer_move)
+    results = SELECTION.win_move(user_move, computer_move)
+
+    SELECTION.game_Ratings(user_rate,comp_rate,results)
 
     # Ask the player if they want to play another round.
     play = SELECTION.play_again()
