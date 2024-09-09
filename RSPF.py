@@ -17,38 +17,31 @@ def user_rating():
         except valueError:
             print("Invalid input. Please enter a valid input.")
 
-#Function to get the final ratings after playing the game
-def game_Ratings(user_rating, computer_rating, outcome):
-    print("What is the user rating: ", user_rating)
-    print("What is the computer rating: ", computer_rating)
+# Function to calculate updated ELO ratings
+def update_ratings(user_rating, computer_rating, result):
+    """
+    Updates ELO ratings based on game result.
+    ELO adjustment factor is arbitrarily set to 32.
+    """
+    K = 32  # K-factor, a constant to control how much ratings change
 
-    if user_rating > computer_rating:  # User is favored
-        if outcome == 'user_choice':
-            user_rating += 2
-            computer_rating -= 2
-        elif outcome == 'tie':
-            user_rating -= 1
-            computer_rating += 1
-        elif outcome == 'computer_choice':
-            user_rating -= 3
-            computer_rating+= 3
+    # Calculate the expected scores for both players
+    expected_user_score = 1 / (1 + 10 ** ((computer_rating - user_rating) / 400))
+    expected_computer_score = 1 / (1 + 10 ** ((user_rating - computer_rating) / 400))
 
-    elif user_rating < computer_rating:  # User is the underdog
-        if outcome == 'user_choice':
-            user_rating += 3
-            computer_rating -= 3
-        elif outcome == 0 :
-            user_rating += 1
-            computer_rating -= 1
-        elif outcome == 'computer_choice':
-            user_rating -= 2
-            computer_rating += 2
+    # Update ratings based on the game outcome
+    if result == 'user_win':
+        user_rating += K * (1 - expected_user_score)
+        computer_rating += K * (0 - expected_computer_score)
+    elif result == 'computer_win':
+        user_rating += K * (0 - expected_user_score)
+        computer_rating += K * (1 - expected_computer_score)
+    elif result == 'tie':
+        user_rating += K * (0.5 - expected_user_score)
+        computer_rating += K * (0.5 - expected_computer_score)
 
-    # Print the updated ratings
-    print(f"Updated User Rating: {user_rating}")
-    print(f"Updated Opponent Rating: {computer_rating}")
-
-
+    # Return updated ratings
+    return round(user_rating), round(computer_rating)
 
 # Function to get the computer choice
 def computer_choice():
@@ -66,46 +59,22 @@ def user_choice():
 
 
 # Function to determine who wins the game by comparing the moves
-def win_move(user_choice, computer_choice):
+def win_move(user_move, computer_move):
     # Check for a tie condition
-    if user_choice == computer_choice:
-        
+    if user_move == computer_move:
+              
         print("It's a tie!\n")
-        return 0
+        return 'tie'
 
-    # Check if user chose Rock
-    elif user_choice == "Rock":
-        if computer_choice == "Scissors":
-            
-            print("Rock smashes scissors!\n\t You win!!!\n")
-            return user_choice
-        else:
-            
-            print("Rock covers paper!\n\t You lost!!!\n")
-            return computer_choice
-
-    # Check if user chose Scissors
-    elif user_choice == "Scissors":
-        if computer_choice == "Paper":
-            
-            print("Scissors cuts paper!\n\t You win!!!\n")
-            return user_choice
-        else:           
-            print("paper covers Rock!\n\t You lost!!!\n")
-            return computer_choice
-
-    # Check if user chose paper
-    elif user_choice == "Paper":
-        if computer_choice == "Rock":            
-            print("Paper covers Rock!\n\t You win!!!\n")
-            return user_choice
-        else:            
-            print("Rock smashes Scissors!\n\t You lost!!!\n")
-            return computer_choice
-
-    # If input from user is invalid
+    # Win and lose conditionsfor the user
+    if (user_move == "Rock" and computer_move=="Scissors" ) or\
+       (user_move == "Scissors" and computer_move=="Paper") or\
+       (user_move == "Paper" and computer_move=="Rock"  ):
+       print(f"You win! {user_move} beats {computer_move}")
+       return "user_win"
     else:
-        print("Invalid choice\n")
+        print(f"You loose!{computer_move}beats {user_move}.n\ ")
+        return "computer_win"      
 
 
 # Function to ask to continue to play.
